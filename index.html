@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Professional Profile</title>
+  <style>
+    :root {
+      --bg-color: #f4f2ee;
+      --card-bg: #ffffff;
+      --text-main: rgba(0, 0, 0, 0.9);
+      --text-sub: rgba(0, 0, 0, 0.6);
+      --accent: #0a66c2;
+      --border-color: #e0e0e0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    
+    body { 
+      background-color: var(--bg-color); 
+      color: var(--text-main); 
+      line-height: 1.5;
+      padding-top: 24px;
+      padding-bottom: 40px;
+    }
+
+    /* Main Container Grid */
+    .layout-container {
+      max-width: 1128px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 24px;
+    }
+
+    @media (max-width: 850px) {
+      .layout-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Reusable Card Style */
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 16px;
+      padding: 24px;
+    }
+
+    /* Header Profile Card */
+    .profile-card {
+      padding: 0 0 24px 0;
+      overflow: hidden;
+    }
+
+    .banner {
+      height: 140px;
+      background: linear-gradient(135deg, #004182 0%, #0a66c2 100%);
+    }
+
+    .avatar-wrapper {
+      padding: 0 24px;
+      margin-top: -65px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid var(--card-bg);
+      object-fit: cover;
+      background: #ccc;
+    }
+
+    .profile-details {
+      padding: 16px 24px 0;
+    }
+
+    .profile-details h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .headline {
+      font-size: 1rem;
+      color: var(--text-sub);
+      margin-top: 4px;
+    }
+
+    .meta-info {
+      font-size: 0.875rem;
+      color: var(--text-sub);
+      margin-top: 8px;
+    }
+
+    .actions {
+      margin-top: 16px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      padding: 6px 16px;
+      border-radius: 16px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #004182; }
+    
+    .btn-outline { 
+      background: transparent; 
+      color: var(--accent); 
+      border: 1px solid var(--accent); 
+    }
+    .btn-outline:hover { background: rgba(10, 102, 194, 0.1); }
+
+    /* General Section Titles */
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    /* List Item Entries */
+    .entry-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .entry-item:last-child { margin-bottom: 0; }
+
+    .entry-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 4px;
+      background: #eef3f8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .entry-content h3 { font-size: 1rem; font-weight: 600; }
+    .entry-content .sub { font-size: 0.875rem; color: var(--text-main); }
+    .entry-content .date { font-size: 0.8rem; color: var(--text-sub); margin-top: 2px; }
+    .entry-content .desc { font-size: 0.875rem; color: var(--text-sub); margin-top: 8px; }
+
+    /* Skills Badges */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-badge {
+      background: #f8f9fa;
+      border: 1px solid var(--border-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    /* Sidebar Styles */
+    .sidebar .card { padding: 16px; }
+    .sidebar h3 { font-size: 0.9rem; margin-bottom: 12px; color: var(--text-sub); }
+    .sidebar-list { list-style: none; font-size: 0.875rem; }
+    .sidebar-list li { margin-bottom: 8px; }
+    .sidebar-list a { color: var(--text-main); text-decoration: none; font-weight: 500; }
+    .sidebar-list a:hover { color: var(--accent); text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div class="layout-container">
+    
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+      
+      <!-- Top Profile Intro Header -->
+      <section class="card profile-card">
+        <div class="banner"></div>
+        <div class="avatar-wrapper">
+          <img src="./me.jpg" alt="Profile Photo" class="avatar">
+        </div>
+        <div class="profile-details">
+          <h1>Shahil Singh Rathore</h1>
+          <p class="headline">Aspiring Data Analyst</p>
+          <p class="meta-info">Indore, Madhya Pradesh• <a href="./contact.html" style="color: var(--accent);">Contact Info</a></p>
+          <div class="actions">
+            <a href="mailto:Ayushrathore231025@gmail.com" class="btn btn-primary">Contact Me</a>
+            <a href="./Profile.pdf" class="btn btn-outline">Download CV</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="card">
+        <h2 class="section-title">About</h2>
+        <p>
+          I am a passionate data analyst student focused on filtering the data in excel file,creating dashboard on PowerBi. Currently practicing advanced SQL, Phython for data manupulation,etc.
+        </p>
+      </section>
+
+      <!-- Education Section -->
+      <section class="card">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="entry-item">
+          <div class="entry-icon">UNI</div>
+          <div class="entry-content">
+            <h3>Shri G.S. Institute of Science & Technology</h3>
+            <p class="sub">Bachelor of Science, Production Engineering</p>
+            <p class="date">2025 – 2029</p>
+            <p class="desc">Relevant coursework: Excel Worksheet, PostgreSQL, PowerBi, Tableau, Database Management Systems.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section class="card">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <span class="skill-badge">PostgreSQL</span>
+          <span class="skill-badge">MS Excel</span>
+          <span class="skill-badge">PowerBI</span>
+          <span class="skill-badge">Tableau</span>
+          <span class="skill-badge">HTML5 & CSS</span>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- SIDEBAR AREA -->
+    <aside class="sidebar">
+      <div class="card">
+        <h3>Page Language</h3>
+        <p style="font-size: 0.875rem; font-weight: 500;">English</p>
+      </div>
+
+      <div class="card">
+        <h3>Public Profile & URL</h3>
+        <p style="font-size: 0.8rem; color: var(--text-sub);"><a href=https://www.linkedin.com/in/shahil-rathore-2312b2376/>https://www.linkedin.com/in/shahil-rathore-2312b2376/</a></p>
+      </div>
+
+      <div class="card">
+        <h3>Projects</h3>
+        <ul class="sidebar-list">
+          <li><button><a href="https://docs.google.com/spreadsheets/d/1zxyYKBDwjjv1lNUkd6g0TNv7aHQ12f7d/edit?usp=drive_link&ouid=104412472310898639453&rtpof=true&sd=true" target="_blank" font-weight="1200">Excel File</a></button></li>
+          <li>Coming soon......</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Featured Links</h3>
+        <ul class="sidebar-list">
+          <li><button><a href="https://github.com/GUNGUNDON790" target="_blank">GitHub Profile</a></button></li>
+          <li><button><a href="./Profile.pdf" target="_blank">Personal Portfolio</a></button></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+  <div>
+    <section class="card profile-card">
+<p style="display: flex; justify-content: center; align-items: center; ">Site will update soon!</p>   
+</section>
+  </div>
+
+</body>
+</html>
